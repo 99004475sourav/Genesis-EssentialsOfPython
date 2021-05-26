@@ -119,3 +119,68 @@ def quadrant():
     else: 
         print('X and Y lie at Origin')
 
+def choiceArith():
+    num1= float(input(" Please Enter the First Value Number 1: "))
+    num2= float(input(" Please Enter the Second Value Number 2: "))
+    choice= int(input("Enter your choice:-\n1.Addition\n2.Substraction\n3.Multiplication\n4.Division\n"))
+    if choice==1:
+        print("Sum is",(num1+num2))
+    elif choice==2:
+        print("Diff is",(num1-num2))
+    elif choice==3:
+        print("Product is",(num1*num2))
+    elif choice==4:
+        print("Division is",(num1/num2))    
+
+def fibonacci():
+    nterms = int(input("How many terms? "))
+    n1, n2 = 0, 1
+    count = 0
+    if nterms <= 0:
+        print("Please enter a positive integer")
+    elif nterms == 1:
+        print("Fibonacci sequence upto",nterms,":")
+        print(n1)
+    else:
+        print("Fibonacci sequence:")
+    while count < nterms:
+        print(n1)
+        nth = n1 + n2
+        n1 = n2
+        n2 = nth
+        count += 1
+
+def factorial():
+    num = int(input("Enter a number: "))
+    factorial = 1
+    if num < 0:
+        print("Sorry, factorial does not exist for negative numbers")
+    elif num == 0:
+        print("The factorial of 0 is 1")
+    else:
+        for i in range(1,num + 1):
+            factorial = factorial*i
+    print("The factorial of",num,"is",factorial)
+
+def sumoffactors():
+    import math 
+    n=int(input("Enter the Number"))
+    if(n == 1):
+        return 1
+    result = 0
+    for i in range(2,(int)(math.sqrt(n))+1) :
+        if (n % i == 0) :
+            if (i == (n/i)) :
+                result = result + i
+            else :
+                result = result + (i + n//i)
+    print(result+n+1)
+
+def isvowel():
+    ch = input("Enter a character: ")
+
+    if(ch=='A' or ch=='a' or ch=='E' or ch =='e' or ch=='I'or ch=='i' or ch=='O' or ch=='o' or ch=='U' or ch=='u'):
+        print(ch, "is a Vowel")
+    else:
+        print(ch, "is a Consonant")
+
