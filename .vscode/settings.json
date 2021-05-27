@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "C:\\Users\\soura\\AppData\\Local\\Microsoft\\WindowsApps\\python3.9.exe"
+    "python.pythonPath": "C:\\Users\\soura\\AppData\\Local\\Microsoft\\WindowsApps\\python3.9.exe",
+    "python.testing.pytestArgs": [
+        "PythonProjects"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
 }
