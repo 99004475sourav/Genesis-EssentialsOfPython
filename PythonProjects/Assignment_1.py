@@ -1,19 +1,22 @@
 from tkinter import Y
 
 
-def BiggestNum():
-    x=int(input("Num1:"))
-    y=int(input("Num2:"))
-    z=int(input("Num32:"))
+def BiggestNum(x,y,z):
+    #x=int(input("Num1:"))
+    #y=int(input("Num2:"))
+    #z=int(input("Num3:"))
     if (x>y) and (x>z):
         print("Largest no is ",x)
+        return x
     if (y>x) and (y>z):
         print("Largest no is ",y)
+        return y
     if (z>x) and (z>y):
         print("Largest no is ",z)
+        return z
 
-def ArmstrongNo():
-    num = int(input("Enter a number: "))
+def ArmstrongNo(num):
+    #num = int(input("Enter a number: "))
     sum = 0
     temp = num
     while temp > 0:
@@ -22,29 +25,33 @@ def ArmstrongNo():
         temp //= 10
     if num == sum:
         print(num,"is an Armstrong number")
+        return 1
     else:
         print(num,"is not an Armstrong number")
+        return 0
 
-def ReverseNum():
-    number = int(input("Enter the integer number: "))  
+def ReverseNum(number):
+    #number = int(input("Enter the integer number: "))  
     revs_number = 0  
     while (number > 0):   
         remainder = number % 10  
         revs_number = (revs_number * 10) + remainder  
         number = number // 10  
     print("The reverse number is : {}".format(revs_number))
+    return revs_number
 
-def Sumofdigit():  
-    n=int(input("Enter the Number:"))
+def Sumofdigit(n):  
+    #n=int(input("Enter the Number:"))
     sum = 0
     while (n != 0):  
         sum = sum + (n % 10)
         n = n//10       
     print("The sum of digits is",sum)
+    return sum
     
-def hcf():  
-    x = int(input("Enter first number: "))  
-    y = int(input("Enter second number: "))
+def myhcf(x,y):  
+    #x = int(input("Enter first number: "))  
+    #y = int(input("Enter second number: "))
     if x > y:  
         smaller =y  
     else:  
@@ -53,10 +60,11 @@ def hcf():
         if((x % i == 0) and (y % i == 0)):  
             hcf = i  
     print("The H.C.F. of", x,"and", y,"is", hcf)
+    return hcf
 
-def compute_lcm():
-    x = 54
-    y = 24
+def compute_lcm(x,y):
+    #x = 54
+    #y = 24
     if x > y:
         greater = x
     else:
@@ -68,6 +76,7 @@ def compute_lcm():
             break
         greater += 1
     print("The L.C.M. is",lcm)
+    return lcm
 
 def leapyear():
     year = int(input("Enter a year: "))
@@ -150,8 +159,8 @@ def fibonacci():
         n2 = nth
         count += 1
 
-def factorial():
-    num = int(input("Enter a number: "))
+def factorial(num):
+    #num = int(input("Enter a number: "))
     factorial = 1
     if num < 0:
         print("Sorry, factorial does not exist for negative numbers")
@@ -161,6 +170,7 @@ def factorial():
         for i in range(1,num + 1):
             factorial = factorial*i
     print("The factorial of",num,"is",factorial)
+    return factorial
 
 def sumoffactors():
     import math 
@@ -183,4 +193,90 @@ def isvowel():
         print(ch, "is a Vowel")
     else:
         print(ch, "is a Consonant")
+ 
+def primerange(upper):
+    #lower = int(input("Enter lower range: "))  
+    #upper = int(input("Enter upper range: "))  
+    c=0
+    for num in range(1,upper + 1):  
+        if num > 1:  
+            for i in range(2,num):  
+                if (num % i) == 0:  
+                    break  
+            else:  
+                print(num)
+                c=c+1
+    print(c)
+    return c
+        
+def triangularsum(n): 
+    sum = 0
+    for i in range(1, n + 1):
+        sum += i * (i + 1) / 2
+    print(sum)
+    return sum
+    
 
+def SieveOfEratosthenes(n,isPrime):
+    isPrime[0] = isPrime[1] = False
+    for i in range(2,n+1):
+        isPrime[i] = True
+    
+    for p in range(2,n+1):
+        if (p*p<=n and isPrime[p] == True):
+            for i in range(p*2,n+1,p):
+                isPrime[i] = False
+                p += 1
+def superprime(n):
+    isPrime = [1 for i in range(n+1)]
+    SieveOfEratosthenes(n, isPrime)
+    primes = [0 for i in range(2,n+1)]
+    j = 0
+    for p in range(2,n+1):
+        if (isPrime[p]):
+            primes[j] = p
+            j += 1
+    for k in range(j):
+        if (isPrime[k+1]):
+            print(primes[k])
+
+def nCr(n, r):
+    
+    res=(factorial(n) / ((factorial(r))*(factorial(n - r))))
+    print (res)
+    return res
+
+def trianglepyramid(n):
+    for i in range(0, n):
+        for j in range(0, i+1):
+            print("* ",end="")
+        print("\r")
+
+def pascalstri(n):
+    for line in range(0, n) :
+        for i in range(0, line + 1) :
+            print(binomialCoeff(line, i),
+                " ", end = "")
+        print()
+def binomialCoeff(n, k) :
+    res = 1
+    if (k > n - k) :
+        k = n - k
+    for i in range(0 , k) :
+        res = res * (n - i)
+        res = res // (i + 1)
+     
+    return res
+
+BiggestNum(4,5,6)
+ArmstrongNo(153)
+ReverseNum(345)
+Sumofdigit(123)
+myhcf(8,4)
+compute_lcm(6,9)
+primerange(10)
+triangularsum(7)
+superprime(241)
+nCr(5,3)
+trianglepyramid(5)
+pascalstri(5)
