@@ -50,6 +50,7 @@ def mexicanwave(s):
         c=s[:i] + up + s[i+1:]
         new.append(c)
     print(new)
+    return new
 
 def maxnumber(n, k):
     for i in range(0, k):
